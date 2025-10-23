@@ -5,8 +5,29 @@
   "description": "ESLint configuration used by Blips.",
   "main": "index.js",
   "license": "MIT",
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "config",
+    "blips",
+    "react",
+    "nextjs",
+    "typescript",
+    "javascript",
+    "code-quality",
+    "linter"
+  ],
+  "author": "Blips",
+  "homepage": "https://github.com/Blips-ativos/eslint-config-blips#readme",
+  "bugs": {
+    "url": "https://github.com/Blips-ativos/eslint-config-blips/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
-    "url": "Blips-ativos/eslint-config-blips"
+    "type": "git",
+    "url": "git+https://github.com/Blips-ativos/eslint-config-blips.git"
   },
   "peerDependencies": {
     "eslint": "^8.0.0",

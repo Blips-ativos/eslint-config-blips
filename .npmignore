@@ -1,0 +1,20 @@
+# Não incluir no pacote publicado
+.git
+.gitignore
+.DS_Store
+node_modules
+*.log
+
+# Arquivos de desenvolvimento
+.vscode
+.idea
+*.swp
+*.swo
+
+# Documentação de desenvolvimento (manter README.md)
+PUBLISHING.md
+
+# Lock files (deixar os usuários gerenciarem suas próprias versões)
+pnpm-lock.yaml
+package-lock.json
+yarn.lock

@@ -1,6 +1,10 @@
+# @blips/eslint-config
 
+> Configuração ESLint padrão da Blips para projetos React e Next.js
 
-# Blips ESLint config
+## � Pacote Público
+
+Este é um pacote público mantido pela **Blips** e disponível para toda a comunidade no NPM.
 
 ## O que inclui?
 
@@ -11,6 +15,18 @@
 - Integração com Prettier;
 - Preset para TypeScript;
 - Preset para Node.js/Server quando aplicável.
+
+## 📦 Instalação
+
+Instale o pacote como dependência de desenvolvimento:
+
+```bash
+npm install @blips/eslint-config --save-dev
+# ou
+pnpm add @blips/eslint-config -D
+# ou
+yarn add @blips/eslint-config -D
+```
 
 ## Setup
 
@@ -68,6 +84,8 @@ Dentro do `.eslintrc.json` do projeto:
 ## Contribuindo
 
 Contribuições são bem-vindas. Abra uma issue antes de grandes mudanças. Faça PRs com descrição das alterações, exemplos e, quando necessário, scripts de teste para validar regras.
+
+Para instruções sobre como publicar novas versões deste pacote, consulte [PUBLISHING.md](./PUBLISHING.md).
 
 ## Contato
 
