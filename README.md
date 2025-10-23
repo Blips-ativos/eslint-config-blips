@@ -1,59 +1,74 @@
 
-README do pacote de configuração ESLint do Blips
 
-Descrição
----------
+# Blips ESLint config
 
-Este repositório contém a configuração compartilhada de ESLint utilizada pelo time de front-end do Blips. O objetivo é padronizar regras, plugins e ambientes de linting para todos os projetos do ecossistema Blips, garantindo qualidade de código consistente, melhores práticas e integração fácil com editores e pipelines de CI.
+## O que inclui?
 
-Principais características
-- Fornece presets básicos e específicos (por exemplo: base, react, typescript).
-- Integração com Prettier para evitar conflitos entre formatação e regras de lint.
-- Conjunto de regras opinativas e regras configuráveis para acomodar diferentes projetos.
+- Configuração base (standard);
+- Plugin React;
+- Plugin React Hooks;
+- Plugin JSX a11y;
+- Integração com Prettier;
+- Preset para TypeScript;
+- Preset para Node.js/Server quando aplicável.
 
-Como usar
----------
+## Setup
 
-Instalação (exemplo via npm):
+### React (com Next.js)
+
+Instale as dependências:
 
 ```bash
-npm install --save-dev @blips/eslint-config
+npm i -D eslint @blips/eslint-config
 ```
 
-Exemplo mínimo de `.eslintrc.json` em um projeto consumidor:
+Dentro do `.eslintrc.json` do projeto:
 
 ```json
 {
-	"extends": ["@blips/eslint-config"]
+	"extends": [
+		"@blips/eslint-config/next",
+		"next/core-web-vitals"
+	]
 }
 ```
 
-Para projetos TypeScript ou React, estenda o preset correspondente:
+### React (sem Next.js)
+
+Instale as dependências:
+
+```bash
+npm i -D eslint @blips/eslint-config
+```
+
+Dentro do `.eslintrc.json` do projeto:
 
 ```json
 {
-	"extends": ["@blips/eslint-config", "@blips/eslint-config/react", "@blips/eslint-config/typescript"]
+	"extends": "@blips/eslint-config/react"
 }
 ```
 
-Contribuindo
------------
+### Node.js
 
-Contribuições são bem-vindas. Siga este fluxo ao propor mudanças:
+Instale as dependências:
 
-1. Abra uma issue descrevendo a motivação para adicionar/alterar regras.
-2. Crie um branch com alterações claras e justifique cada mudança no PR.
-3. Adicione exemplos e, quando aplicável, casos de teste para regras customizadas.
-4. Rode localmente o ESLint nos exemplos para verificar comportamento e autofix.
+```bash
+npm i -D eslint @blips/eslint-config
+```
 
-Benefícios
----------
+Dentro do `.eslintrc.json` do projeto:
 
-- Consistência de estilo entre projetos do Blips.
-- Redução de discussões sobre formatação em PRs.
-- Detecção precoce de padrões de código problemáticos.
+```json
+{
+	"extends": "@blips/eslint-config/node"
+}
+```
 
-Contato
--------
+## Contribuindo
 
-Para dúvidas ou suporte, abra uma issue ou contate o time de front-end.
+Contribuições são bem-vindas. Abra uma issue antes de grandes mudanças. Faça PRs com descrição das alterações, exemplos e, quando necessário, scripts de teste para validar regras.
+
+## Contato
+
+Para dúvidas, abra uma issue ou contate o time de front-end.
