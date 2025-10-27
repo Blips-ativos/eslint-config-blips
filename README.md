@@ -2,7 +2,7 @@
 
 > Configuração ESLint padrão da Blips para projetos React e Next.js
 
-## � Pacote Público
+## Pacote Público
 
 Este é um pacote público mantido pela **Blips** e disponível para toda a comunidade no NPM.
 
@@ -109,6 +109,36 @@ export default [
   },
 ];
 ```
+
+### Projetos Legados
+
+Para projetos legados onde você deseja converter todos os erros do ESLint em avisos (warnings), recomendamos usar o plugin [`eslint-plugin-only-warn`](https://www.npmjs.com/package/eslint-plugin-only-warn):
+
+```bash
+npm i -D eslint-plugin-only-warn
+# ou
+pnpm add -D eslint-plugin-only-warn
+# ou
+yarn add -D eslint-plugin-only-warn
+```
+
+E configure no seu `eslint.config.js`:
+
+```javascript
+import { config as nextConfig } from "@blips/eslint-config/next";
+import onlyWarn from "eslint-plugin-only-warn";
+
+export default [
+  ...nextConfig,
+  {
+    plugins: {
+      onlyWarn,
+    },
+  },
+];
+```
+
+Isso é útil para projetos em migração, onde você quer visualizar todos os problemas sem bloquear o build.
 
 ## 📝 Scripts Recomendados
 
