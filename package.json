@@ -4,6 +4,10 @@
   "private": false,
   "description": "ESLint configuration used by Blips.",
   "main": "index.js",
+  "exports": {
+    "./next": "./next.js",
+    "./react": "./react.js"
+  },
   "license": "MIT",
   "keywords": [
     "eslint",
