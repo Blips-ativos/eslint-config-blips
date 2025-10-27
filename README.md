@@ -8,13 +8,13 @@ Este é um pacote público mantido pela **Blips** e disponível para toda a comu
 
 ## O que inclui?
 
-- Configuração base (standard);
-- Plugin React;
+- Configuração base ESLint v9+ (Flat Config);
+- Plugin React com suporte a JSX;
 - Plugin React Hooks;
-- Plugin JSX a11y;
 - Integração com Prettier;
-- Preset para TypeScript;
-- Preset para Node.js/Server quando aplicável.
+- Preset para TypeScript (via typescript-eslint);
+- Plugin Next.js (quando aplicável);
+- Ordenação automática de imports (simple-import-sort).
 
 ## 📦 Instalação
 
@@ -30,23 +30,26 @@ yarn add @blips/eslint-config -D
 
 ## Setup
 
+> **⚠️ Importante**: Este pacote usa o formato **Flat Config** do ESLint v9+. Certifique-se de ter ESLint v9 ou superior instalado.
+
 ### React (com Next.js)
 
 Instale as dependências:
 
 ```bash
-npm i -D eslint @blips/eslint-config
+npm i -D eslint@^9.0.0 typescript @blips/eslint-config
+# ou
+pnpm add -D eslint@^9.0.0 typescript @blips/eslint-config
+# ou
+yarn add -D eslint@^9.0.0 typescript @blips/eslint-config
 ```
 
-Dentro do `.eslintrc.json` do projeto:
+Crie um arquivo `eslint.config.js` na raiz do projeto:
 
-```json
-{
-	"extends": [
-		"@blips/eslint-config/next",
-		"next/core-web-vitals"
-	]
-}
+```javascript
+import { config as nextConfig } from "@blips/eslint-config/next";
+
+export default nextConfig;
 ```
 
 ### React (sem Next.js)
@@ -54,30 +57,69 @@ Dentro do `.eslintrc.json` do projeto:
 Instale as dependências:
 
 ```bash
-npm i -D eslint @blips/eslint-config
+npm i -D eslint@^9.0.0 typescript @blips/eslint-config
+# ou
+pnpm add -D eslint@^9.0.0 typescript @blips/eslint-config
+# ou
+yarn add -D eslint@^9.0.0 typescript @blips/eslint-config
 ```
 
-Dentro do `.eslintrc.json` do projeto:
+Crie um arquivo `eslint.config.js` na raiz do projeto:
 
-```json
-{
-	"extends": "@blips/eslint-config/react"
-}
+```javascript
+import { config as reactConfig } from "@blips/eslint-config/react";
+
+export default reactConfig;
 ```
 
-### Node.js
+### Configuração Base (TypeScript)
 
-Instale as dependências:
+Para projetos que não usam React/Next.js:
 
 ```bash
-npm i -D eslint @blips/eslint-config
+npm i -D eslint@^9.0.0 typescript @blips/eslint-config
+# ou
+pnpm add -D eslint@^9.0.0 typescript @blips/eslint-config
+# ou
+yarn add -D eslint@^9.0.0 typescript @blips/eslint-config
 ```
 
-Dentro do `.eslintrc.json` do projeto:
+Crie um arquivo `eslint.config.js` na raiz do projeto:
+
+```javascript
+import { config as baseConfig } from "@blips/eslint-config/base";
+
+export default baseConfig;
+```
+
+## 🔧 Customização
+
+Você pode estender a configuração base adicionando suas próprias regras:
+
+```javascript
+import { config as nextConfig } from "@blips/eslint-config/next";
+
+export default [
+  ...nextConfig,
+  {
+    rules: {
+      // Suas regras customizadas aqui
+      "no-console": "warn",
+    },
+  },
+];
+```
+
+## 📝 Scripts Recomendados
+
+Adicione ao seu `package.json`:
 
 ```json
 {
-	"extends": "@blips/eslint-config/node"
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  }
 }
 ```
 
